@@ -1,0 +1,21 @@
+** XCam-ng
+Les fonctions
+  -Détection de la file d'attente du véhicule
+  -Mesure de la file d'attente du véhicule
+  -Occupation spatiale
+  -Comptage de véhicules
+  -Détection pré-embouteillage
+** Technologie V2X (vehicle to everything) : 
+Transfert d'informations d'un véhicule à une entité quelconque susceptible d'affecter le véhicule, et inversement. Il s’agit d’un système de communication entre véhicules qui intègre d’autres types de communication plus spécifiques, tels que V2I (véhicule à infrastructure), V2N ( véhicule à réseau ), V2V ( véhicule à véhicule ), V2P (véhicule à piéton). , V2D ( véhicule à périphérique ) et V2G ( véhicule à réseau ).
+Les principales motivations de V2X sont la sécurité routière, l'efficacité du trafic et les économies d'énergie. Il existe deux types de technologie de communication V2X en fonction de la technologie sous-jacente utilisée:
+  -WLAN 
+  -Réseaux mobiles (5G)
+Inconvénient : couteuse, complexité de la mise en œuvre. 
+** Waze : est une application cartographique qui utilise les données des utilisateurs de l'application pour fournir des itinéraires de navigation plus rapides. Les données sont soumises à la fois automatiquement lorsque les utilisateurs circulent (en utilisant les vitesses déterminées par les signaux GPS) et peuvent être saisies manuellement sur l'application. Les utilisateurs peuvent signaler des pièges de vitesse, des accidents, des embouteillages, et d'autres choses qui pourraient ralentir les conducteurs. 
+Inconvénients :
+- La quantité d'énergie de la batterie et les ressources de données qu'elle consomme.
+- L’application perd son avantage dans les zones avec peu d’activités ou utilisateurs.
+- Signalement de radars (ce qui est interdit)
+** My V-Traffic :
+Cette application indique en direct l’état du trafic (sur autoroutes, routes secondaires, rues principales de certaines grandes villes) selon la vitesse de circulation, les accidents, les routes barrées, les embouteillages, etc. 
+Inconvénient majeur : il faut télécharger l’application payante pour avoir le meilleur itinéraire.
