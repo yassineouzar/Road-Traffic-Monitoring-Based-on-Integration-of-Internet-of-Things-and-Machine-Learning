@@ -1,0 +1,78 @@
+Getting started with opencv and tensorflow
+-----------------------------------------------
+
+1) Update the Raspberry Pi
+
+The Raspberry Pi must be fully updated by typing on the terminal:
+
+	sudo apt-get update
+	sudo apt-get dist-upgrade
+
+2) Uninstall Any Previous Version(s) of Python (unless you already have 3.6 or later) and remove them from PATH :
+
+	sudo apt-get remove python2.7
+	sudo apt-get autoremove
+
+3) Install Python 3.6 or later : sudo apt-get install python3.6
+
+4) Upgrade packages installer for python pip :
+	
+	pip install --upgrade pip
+
+5) Install the necessary packages via pip :
+
+	pip3 install numpy
+	pip3 install matplotlib
+
+6) Install opencv : 
+
+	sudo apt-get install libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev
+	sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
+	sudo apt-get install libxvidcore-dev libx264-dev
+	sudo apt-get install qt4-dev-tools
+	pip3 install opencv-python
+
+7) Install TensorFlow :
+ 
+	mkdir tf
+	cd tf
+   	wget https://github.com/lhelontra/tensorflow-on-arm/releases/download/v1.8.0/tensorflow-1.8.0-cp35-none-linux_armv7l.whl
+     	sudo pip3 install /home/pi/tf/tensorflow-1.8.0-cp35-none-linux_armv7l.whl
+
+8) Compile and Install Protobuf : 
+
+	sudo apt-get install autoconf automake libtool curl
+	wget https://github.com/google/protobuf/releases/download/v3.5.1/protobuf-all-3.5.1.tar.gz
+	tar -zxvf protobuf-all-3.5.1.tar.gz
+	cd protobuf-3.5.1
+	./configure
+	make
+	make check 
+	sudo make install
+	cd python
+	export LD_LIBRARY_PATH=../src/.libs
+	python3 setup.py build --cpp_implementation 
+	python3 setup.py test --cpp_implementation
+	sudo python3 setup.py install --cpp_implementation
+	export PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=cpp
+	export PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION_VERSION=3
+	sudo ldconfig
+
+9) Set up TensorFlow Directory Structure and PYTHONPATH Variable :
+
+	mkdir tensorflow1
+	cd tensorflow1
+	git clone --recurse-submodules https://github.com/tensorflow/models.git
+	sudo nano ~/.bashrc
+	export PYTHONPATH=$PYTHONPATH:/home/pi/tensorflow1/models/research:/home/pi/tensorflow1/models/research/slim
+	cd /home/pi/tensorflow1/models/research
+	protoc object_detection/protos/*.proto --python_out=.
+
+10) Download the SSDLite-MobileNet model and unpack it by issuing:
+
+	wget http://download.tensorflow.org/models/object_detection/ssdlite_mobilenet_v2_coco_2018_05_09.tar.gz
+	tar -xzvf ssdlite_mobilenet_v2_coco_2018_05_09.tar.gz
+	
+11) Run the script by issuing:
+
+	python3 main.py 			

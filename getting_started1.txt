@@ -1,0 +1,19 @@
+Getting started with Raspberry Pi
+----------------------------------------
+
+** Download the operating system image https://www.raspberrypi.org/downloads/
+
+** Unzip the file
+
+** Writing the image to the SD card using Balena Etcher
+
+** Put the microSD card in your Pi and boot up
+
+** Access your Raspberry Pi Terminal and Graphical Desktop remotely using SSH and VNC using putty and VNC Viewer :
+
+	https://42bots.com/tutorials/access-raspberry-pi-terminal-and-desktop-remotely-with-ssh-and-vnc/
+	https://raspbian-france.fr/controlez-raspberry-pi-ssh-ordinateur/
+
+
+
+
