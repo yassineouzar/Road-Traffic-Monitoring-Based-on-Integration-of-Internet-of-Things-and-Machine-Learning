@@ -1,0 +1,14 @@
+1) Capturer une vidéo, une série des photos ou directement via une camera.
+2) Détecter en temps réels les objets qui figurent sur les images capturées.
+3) Classifier les objets détectés selon leurs types grace au model de réseaux de neurone convolutifs SSDLite Mobilenet v2
+4) Extraire la classe des véhicules.
+5) Compter le nombre des véhicules détectés.
+6) Afficher le nombre des véhicules détectés sur les séries d’images de sortie.
+7) Afficher en temps réel le nombre des véhicules détectés sur une interface web basée sur html/css/javascript coté client et javascript/node.js coté serveur. 
+
+**Scénario de test : 
+--------------------------------------
+1) Lancer le serveur web
+2) Accéder à la page web
+3) Cliquer sur le bouton Launch pour lancer l'algorithme de détection et comptage des véhicules.
+4) Afficher le nombre des véhicules passés en cliquant sur le bouton Count
