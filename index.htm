@@ -1,0 +1,52 @@
+<html>
+<head>
+		<title>Home Page</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="/style.css">
+		<link rel="stylesheet" href="/bootstrap.min.css">
+		<link rel="stylesheet" href="/index.css">
+		<script type="text/javascript" src="/jquery.min.js"></script>
+		<script type="text/javascript" src="/bootstrap.min.js"></script>
+		<script src="/jquery-3.3.1.min.js"></script>
+		<script src="/launch.js"></script> 
+		<script src="/Count.js"></script> 
+</head>
+<body id="reportsPage">
+    <div class="" id="home">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-xl navbar-light bg-light">
+                        <h1 class="tm-site-title mb-0">Road Traffic Monitoring</h1>
+                    </nav>
+                </div>
+            </div>
+            <!-- row -->
+            <div class="col"> <br/> </div>
+            <div class="col ">
+                <div>
+                    <div class="bg-white tm-block">
+                        <h2 class="tm-block-title">Vehicle Counting</h2>
+                        <div class="embed-responsive embed-responsive-16by9">
+                                <video controls>
+                                        <source src="a.mp4" type="video/mp4">
+                                </video>
+                        </div>
+                        </br><input type="button" value="Launch" class="btn btn-info" id="Launch" onclick="activer()"/><span id="Nom"></span></br>
+			</br><input type="button" value="Count" class="btn btn-info" id="Count" onclick="activer1()"/>  Nombre de Voiture Détecter : <span id="Nombre"></span></br>
+                    </div>
+                </div>
+            </div>
+            <footer class="row tm-mt-small">
+                <div class="col-12 font-weight-light">
+                    <p class="d-inline-block tm-bg-black text-white py-2 px-4">
+                        Copyright &copy; Ouzar Yassine.
+                    </p>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+</body>
+</html>
