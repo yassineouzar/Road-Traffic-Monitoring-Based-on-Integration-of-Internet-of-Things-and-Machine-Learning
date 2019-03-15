@@ -1,0 +1,69 @@
+** Tâche 1 : Configuration du Raspberry PI
+----------------------------------------------------------------------------
+1) Installation de Raspbian pour le Raspberry Pi sur carte micro SD avec Etcher.
+2) Configuration des paramètres et les interfaces du Raspberry :
+	sudo apt-get update
+	sudo apt-get dist-upgrade
+  sudo raspi-config → “Enable camera”, “Enable VNC” 
+3) Commander le Raspberry Pi à distance via ssh et vnc en utilisant putty et VNC viewer.
+
+** Tâche 2 : implémentation de l'algorithme de détection d’objets
+---------------------------------------------------------------------------------------
+1) Désinstallation de toutes les versions précédentes de Python et l’installation de  la version 3.6 ou une version ultérieure :
+	sudo apt-get remove python2.7
+	sudo apt-get autoremove
+	sudo apt-get install python3.6
+2) Mise à jour de gestionnaire des paquets pip
+	pip install --upgrade pip
+3) Installation des modules nécessaires :
+	pip3 install numpy
+	pip3 install matplotlib
+4) Installation de Opencv : 
+	sudo apt-get install libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev
+	sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
+	sudo apt-get install libxvidcore-dev libx264-dev
+	sudo apt-get install qt4-dev-tools
+	pip3 install opencv-python
+5) Installation de TensorFlow :
+	mkdir tf
+	cd tf
+  wget https://github.com/lhelontra/tensorflow-on-arm/releases/download/v1.8.0/tensorflow-1.8.0-cp35-none-linux_armv7l.whl
+  sudo pip3 install /home/pi/tf/tensorflow-1.8.0-cp35-none-linux_armv7l.whl
+6) Compilation et l’installation de Protobuf : 
+	sudo apt-get install autoconf automake libtool curl
+	wget https://github.com/google/protobuf/releases/download/v3.5.1/protobuf-all-3.5.1.tar.gz
+	tar -zxvf protobuf-all-3.5.1.tar.gz
+	cd protobuf-3.5.1
+	./configure
+	make
+	make check 
+	sudo make install
+	cd python
+	export LD_LIBRARY_PATH=../src/.libs
+	python3 setup.py build --cpp_implementation 
+	python3 setup.py test --cpp_implementation
+	sudo python3 setup.py install --cpp_implementation
+	export PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=cpp
+	export PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION_VERSION=3
+	sudo ldconfig
+7) Configuration de la structure de répertoire TensorFlow et de la variable PYTHONPATH :
+	mkdir tensorflow1
+	cd tensorflow1
+	git clone --recurse-submodules https://github.com/tensorflow/models.git
+	sudo nano ~/.bashrc
+  export PYTHONPATH=$PYTHONPATH:/home/pi/tensorflow1/models/research:/home/pi/tensorflow1/models/research/slim
+	cd /home/pi/tensorflow1/models/research
+	protoc object_detection/protos/*.proto --python_out=.
+8) Télécharger le modele SSDLite-MobileNet :
+  wget http://download.tensorflow.org/models/object_detection/ssdlite_mobilenet_v2_coco_2018_05_09.tar.gz
+	tar -xzvf ssdlite_mobilenet_v2_coco_2018_05_09.tar.gz
+9) Installer node.js
+  curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+  sudo apt-get install -y nodejs
+10) Lancer le script
+  python3 test.py
+11) Lancer le serveur
+  node server.js
+	
+
+ 
